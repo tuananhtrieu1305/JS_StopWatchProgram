@@ -7,11 +7,11 @@ const resetBtn = $("#resetBtn");
 let startTime = 0;
 let elapsedTime = 0;
 let currentTime = 0;
-let paused = true;
 let intervalID;
+let paused = true;
 let hrs = 0;
-let secs = 0;
 let mins = 0;
+let secs = 0;
 startBtn.addEventListener("click", () => {
   if (paused) {
     paused = false;
@@ -20,21 +20,19 @@ startBtn.addEventListener("click", () => {
   }
 });
 pauseBtn.addEventListener("click", () => {
-  if (!paused) {
-    paused = false;
-    elapsedTime = Date.now() - startTime;
-    clearInterval(intervalID);
-  }
+  paused = true;
+  elapsedTime = Date.now() - startTime;
+  clearInterval(intervalID);
 });
 resetBtn.addEventListener("click", () => {
-  paused = false;
+  paused = true;
   clearInterval(intervalID);
   startTime = 0;
   elapsedTime = 0;
   currentTime = 0;
   mins = 0;
-  hrs = 0;
   secs = 0;
+  hrs = 0;
   timeDisplay.textContent = "00:00:00";
 });
 function updateTime() {
